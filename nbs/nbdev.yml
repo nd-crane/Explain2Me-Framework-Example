@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "Explain2Me-Framework-Example"
+  site-url: "https://nd-crane.github.io/Explain2Me-Framework-Example"
+  description: "An example taking the Explain2Me computer vision project and wrapping it with the best practices of the framework group, including documentation with nbdev."
+  repo-branch: main
+  repo-url: "https://github.com/nd-crane/Explain2Me-Framework-Example"
