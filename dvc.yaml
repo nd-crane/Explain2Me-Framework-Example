@@ -1,0 +1,7 @@
+stages:
+  tutorial:
+    cmd: jupyter nbconvert --to python --execute nbs/00_Running_Models.ipynb --output ../scripts/00_Running_Models
+    deps:
+    - pdm.lock
+    - pyproject.toml
+    - nbs/00_Running_Models.ipynb

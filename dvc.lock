@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  tutorial:
+    cmd: jupyter nbconvert --to python --execute nbs/00_Running_Models.ipynb --output
+      ../scripts/00_Running_Models
+    deps:
+    - path: nbs/00_Running_Models.ipynb
+      md5: 4dd0dff42a9fd5ed852dd067a6f024dc
+      size: 2771
+    - path: pdm.lock
+      md5: 0fc90637ccf91b7b30583489d2a37df4
+      size: 315810
+    - path: pyproject.toml
+      md5: 608b2a1a77d5becf4d60a8c7058b0133
+      size: 264
