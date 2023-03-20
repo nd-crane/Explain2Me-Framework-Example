@@ -1,0 +1,6 @@
+[core]
+    remote = local
+['remote "myremove"']
+    url = gdrive://1WP_hbjHohQ0GvgRvi3tOjwDy_7B1WTkT
+['remote "local"']
+    url = /afs/crc.nd.edu/group/TAI/Users/painswor/Explain2Me-data
