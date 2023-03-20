@@ -6,18 +6,19 @@ stages:
     - pyproject.toml
     - nbs/noise.ipynb
     - data/images/ffhq_aligned/000001.png
-    metrics:
-    - output/metrics/noise.json
-        cache: false
   evaluate:
     cmd: ./install-quarto.sh
     deps:
     - data/images
     - nbs/noise.ipynb
+  salience:
+    cmd: jupyter nbconvert --to python --execute nbs/salience.ipynb --output ../scripts/salience.py
+    deps:
+    - pdm.lock
+    - pyproject.toml
+    - nbs/salience.ipynb
+    - data/images/ffhq_aligned/00001.png
     outs:
-    - output/images/entropy-densenet-example.png:
-        cache: false
-    - scripts/00_Running_Models.py
-    metrics:
-    - output/metrics/noise.json:
-        cache: false
+    - scripts/salience.py
+    plots:
+    - output/cams/00001.png

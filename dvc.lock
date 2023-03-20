@@ -13,3 +13,25 @@ stages:
     - path: pyproject.toml
       md5: 608b2a1a77d5becf4d60a8c7058b0133
       size: 264
+  salience:
+    cmd: jupyter nbconvert --to python --execute nbs/salience.ipynb --output ../scripts/salience.py
+    deps:
+    - path: data/images/ffhq_aligned/00001.png
+      md5: 13b18bd309d8ce99ef1a71d7235d2e93
+      size: 95025
+    - path: nbs/salience.ipynb
+      md5: dd919741d7fad0e7cbbd725a9daa8767
+      size: 511086
+    - path: pdm.lock
+      md5: 0ad3d6e4d55e6af65b9f53b3311820c1
+      size: 422454
+    - path: pyproject.toml
+      md5: c89c85c611203c395133e88d8a890446
+      size: 534
+    outs:
+    - path: output/cams/00001.png
+      md5: 19c24fbce1c07f4fca87670440487bfc
+      size: 78953
+    - path: scripts/salience.py
+      md5: 6e1054c2601f1d3abf9f93ff2caf1c5f
+      size: 4618

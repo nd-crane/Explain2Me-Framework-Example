@@ -14,7 +14,16 @@ dependencies = [
     "torchvision>=0.6.0",
     "torchcam>=0.3.1",
     "opencv-python>=4.7.0.72",
-    "nbconvert>=7.2.9",
+    "nbconvert>=7.2.10",
+    "dvclive>=2.5.0",
+    "ipython>=8.11.0",
+    "ipykernel>=6.22.0",
+    "numpy>=1.24.2",
+    "pandas>=1.5.3",
 ]
 requires-python = ">=3.9"
 license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
