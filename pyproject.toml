@@ -14,6 +14,7 @@ dependencies = [
     "torchvision>=0.6.0",
     "torchcam>=0.3.1",
     "opencv-python>=4.7.0.72",
+    "nbconvert>=7.2.9",
 ]
 requires-python = ">=3.9"
 license = {text = "MIT"}

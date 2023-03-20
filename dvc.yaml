@@ -1,7 +1,23 @@
 stages:
-  tutorial:
-    cmd: jupyter nbconvert --to python --execute nbs/00_Running_Models.ipynb --output ../scripts/00_Running_Models
+  noise:
+    cmd: jupyter nbconvert --to python --execute nbs/noise.ipynb --output ../scripts/noise.py
     deps:
     - pdm.lock
     - pyproject.toml
-    - nbs/00_Running_Models.ipynb
+    - nbs/noise.ipynb
+    - data/images/ffhq_aligned/000001.png
+    metrics:
+    - output/metrics/noise.json
+        cache: false
+  evaluate:
+    cmd: ./install-quarto.sh
+    deps:
+    - data/images
+    - nbs/noise.ipynb
+    outs:
+    - output/images/entropy-densenet-example.png:
+        cache: false
+    - scripts/00_Running_Models.py
+    metrics:
+    - output/metrics/noise.json:
+        cache: false
