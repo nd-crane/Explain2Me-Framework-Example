@@ -1,0 +1,7 @@
+salience:
+  image_path: data/images/StyleGAN-2/000700.png
+  model_path: models/weights/Densenet/densenet_cyborg_1/Logs/final_model.pth
+  network: densenet
+  gradcam_type: gradcam
+  size: upscaled
+  output_path: output/cams/000700.png

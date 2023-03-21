@@ -14,24 +14,30 @@ stages:
       md5: 608b2a1a77d5becf4d60a8c7058b0133
       size: 264
   salience:
-    cmd: jupyter nbconvert --to python --execute nbs/salience.ipynb --output ../scripts/salience.py
+    cmd: "papermill  nbs/salience.ipynb  scripts/salience.ipynb -p IMAGE_PATH data/images/StyleGAN-2/000700.png\
+      \ -p MODEL_PATH models/weights/Densenet/densenet_cyborg_1/Logs/final_model.pth\
+      \ -p NETWORK densenet -p GRADCAM_TYPE gradcam -p SIZE upscaled -p OUTPUT_PATH\
+      \ output/cams/000700.png\n"
     deps:
-    - path: data/images/ffhq_aligned/00001.png
-      md5: 13b18bd309d8ce99ef1a71d7235d2e93
-      size: 95025
+    - path: data/images/StyleGAN-2/000700.png
+      md5: 2052b38923e7d53293e256305d704a57
+      size: 83659
+    - path: models/weights/Densenet/densenet_cyborg_1/Logs/final_model.pth
+      md5: e3de51b6a7d7acaed6abe10f28daddf9
+      size: 56384714
     - path: nbs/salience.ipynb
-      md5: dd919741d7fad0e7cbbd725a9daa8767
-      size: 511086
+      md5: cca13f9627a7778e1efdf2bc544af10b
+      size: 510459
     - path: pdm.lock
-      md5: 0ad3d6e4d55e6af65b9f53b3311820c1
-      size: 422454
+      md5: 3c993dad4529d622c1706b1a0df68b61
+      size: 448083
     - path: pyproject.toml
-      md5: c89c85c611203c395133e88d8a890446
-      size: 534
+      md5: ec93310f4e6f477e095f319ca8b93d3d
+      size: 605
     outs:
-    - path: output/cams/00001.png
-      md5: 19c24fbce1c07f4fca87670440487bfc
-      size: 78953
-    - path: scripts/salience.py
-      md5: 6e1054c2601f1d3abf9f93ff2caf1c5f
-      size: 4618
+    - path: output/cams/000700.png
+      md5: 5d607cf49b4fd19ac704231b1623fb74
+      size: 69415
+    - path: scripts/salience.ipynb
+      md5: 029f8e862881517de8c809382f54222c
+      size: 478884

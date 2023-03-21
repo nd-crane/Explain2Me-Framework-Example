@@ -1,24 +1,22 @@
 stages:
-  noise:
-    cmd: jupyter nbconvert --to python --execute nbs/noise.ipynb --output ../scripts/noise.py
-    deps:
-    - pdm.lock
-    - pyproject.toml
-    - nbs/noise.ipynb
-    - data/images/ffhq_aligned/000001.png
-  evaluate:
-    cmd: ./install-quarto.sh
-    deps:
-    - data/images
-    - nbs/noise.ipynb
   salience:
-    cmd: jupyter nbconvert --to python --execute nbs/salience.ipynb --output ../scripts/salience.py
+    cmd: >
+        papermill 
+        nbs/salience.ipynb 
+        scripts/salience.ipynb
+        -p IMAGE_PATH ${salience.image_path}
+        -p MODEL_PATH ${salience.model_path}
+        -p NETWORK ${salience.network}
+        -p GRADCAM_TYPE ${salience.gradcam_type}
+        -p SIZE ${salience.size}
+        -p OUTPUT_PATH ${salience.output_path}
     deps:
     - pdm.lock
     - pyproject.toml
     - nbs/salience.ipynb
-    - data/images/ffhq_aligned/00001.png
+    - ${salience.image_path}
+    - ${salience.model_path}
     outs:
-    - scripts/salience.py
+    - scripts/salience.ipynb
     plots:
-    - output/cams/00001.png
+    - ${salience.output_path}
