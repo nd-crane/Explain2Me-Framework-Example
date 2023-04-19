@@ -41,3 +41,25 @@ stages:
     - path: scripts/salience.ipynb
       md5: 029f8e862881517de8c809382f54222c
       size: 478884
+  noise:
+    cmd: "papermill  nbs/noise.ipynb  scripts/noise.ipynb -p DATASET ../data/images/ffhq_aligned/00001.png\
+      \ -p MODEL_PATH ../models/weights/Densenet/densenet_cyborg_1/Logs/final_model.pth\
+      \ -p NETWORK densenet -p ANOUNT 0.05 --cwd nbs/\n"
+    deps:
+    - path: nbs/noise.ipynb
+      md5: 1ec66600e91d7e93281b8d9fb24b94d7
+      size: 1164152
+    - path: pdm.lock
+      md5: 0a18364ab00b97730585e6d917c1e4ae
+      size: 475863
+    - path: pyproject.toml
+      md5: b16e72171a87725fcc3e8bc3caf2cf0c
+      size: 685
+    outs:
+    - path: eval/plots/images
+      md5: dafacea0d8e72e922af3a45a4798d964.dir
+      size: 203211
+      nfiles: 2
+    - path: scripts/noise.ipynb
+      md5: c355b7d1cd980fd1e080db6ef080e704
+      size: 1187302

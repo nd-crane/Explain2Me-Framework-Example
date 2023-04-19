@@ -1,22 +1,19 @@
 stages:
-  salience:
+  noise:
     cmd: >
         papermill 
-        nbs/salience.ipynb 
-        scripts/salience.ipynb
-        -p IMAGE_PATH ${salience.image_path}
-        -p MODEL_PATH ${salience.model_path}
-        -p NETWORK ${salience.network}
-        -p GRADCAM_TYPE ${salience.gradcam_type}
-        -p SIZE ${salience.size}
-        -p OUTPUT_PATH ${salience.output_path}
+        nbs/noise.ipynb 
+        scripts/noise.ipynb
+        -p DATASET ${noise.dataset}
+        -p MODEL_PATH ${noise.model_path}
+        -p NETWORK ${noise.network}
+        -p ANOUNT ${noise.amount}
+        --cwd nbs/
     deps:
     - pdm.lock
     - pyproject.toml
-    - nbs/salience.ipynb
-    - ${salience.image_path}
-    - ${salience.model_path}
+    - nbs/noise.ipynb
     outs:
-    - scripts/salience.ipynb
-    plots:
-    - ${salience.output_path}
+    - scripts/noise.ipynb
+    - eval/plots/images:
+        persist: false
